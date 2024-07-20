@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @FlaaDev
+- 👀 I’m interested in Front-End and Game Development
+- 🌱 I’m currently learning Lua and JS
+- 💞️ I’m looking to collaborate on Front-End Projects
+- 😄 Pronouns: FlaaDev-Kit
