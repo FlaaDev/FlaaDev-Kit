@@ -1,5 +1,4 @@
-local Translations = {
-    error = {
+Locales['en'] = {
         ["alreadyRented"]      = "You already rented a vehicle!",
         ["enoughCash"]         = "You don't have enough cash!",
         ["fakeDrivingLicense"] = "It's not your driving license! GET YOURS!",
@@ -8,12 +7,8 @@ local Translations = {
         ["didnotRent"]         = "You didn't rent a Vehicle!",
         ["beDriver"]           = "You must be the driver!",
         ["notTheCar"]          = "It's not the car you rented!",
-    },
-    success = {
         ["rented"]             = "Take care of the vehicle.",
         ["back"]               = "Thanks for returning it in one piece!",
-    },
-    info = {
         ["rentalMenuHeader"]   = "Rental Service",
         ["lostVehicle"]        = "I lost the Vehicle - $",
         ["payFees"]            = "Pay The Fees!",
@@ -21,13 +16,6 @@ local Translations = {
         ["feesMenuHeader"]     = "You don't have rental paper.",
         ["payRentalFees"]      = "Pay Fees - $",
         ["returnCar"]          = "E - Return Vehicle",
-    },
-    warning = {
-        ["lostVehicle"]        = "Take care next time!"
-    }
+        ["loostVehicle"]       = "Take care next time!",
+        ["rentCar"]            = "E - Rent Vehicle",
 }
-
-Lang = Lang or Locale:new({
-    phrases = Translations,
-    warnOnMissing = true
-})

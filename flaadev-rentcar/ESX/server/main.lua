@@ -1,43 +1,45 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local ESX = exports["es_extended"]:getSharedObject()
 
-QBCore.Functions.CreateCallback("flaadev-rental:server:PayRental", function (source, cb, price)
+ESX.RegisterServerCallback("flaadev-rental:server:PayRental", function(source, cb, price)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    if Player.Functions.RemoveMoney("cash", price, "Paid for car rental.") then
+    local Player = ESX.GetPlayerFromId(src)
+    if Player.getMoney() >= price then
+        Player.removeMoney(price)
         cb(true)
     else
         cb(false)
     end
 end)
 
-QBCore.Functions.CreateCallback("flaadev-rental:server:CheckLicense", function (source, cb)
+ESX.RegisterServerCallback("flaadev-rental:server:CheckLicense", function(source, cb, price)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local item = Shared.licenseItemName
-    local paper = Shared.rentalPaperName
-    local licensesFound = exports['qb-inventory']:GetItemsByName(src, item)
-    if #licensesFound >= 1 then
-        for i, v in ipairs(licensesFound) do
-            if v.info.firstname == Player.PlayerData.charinfo.firstname and v.info.lastname == Player.PlayerData.charinfo.lastname then
-                if exports['qb-inventory']:AddItem(src, paper, 1, false, false, 'Gave Paper') then
-                    cb(1)
-                else
-                    cb(4)
-                end
+    local Player = ESX.GetPlayerFromId(src)
+    local item = Config.licenseItemName
+    local paper = Config.rentalPaperName
+    local licensesFound = Player.hasItem(item)
+    if licensesFound then
+        if Player.canCarryItem(paper, 1) then
+            if Player.getMoney() >= price then
+                Player.addInventoryItem(paper, 1)
+                cb(1)
+            else
+                cb(2)
             end
+        else
+            cb(4)
         end
-        cb(2)
     else
         cb(3)
     end
 end)
 
-QBCore.Functions.CreateCallback("flaadev-rental:server:CheckPaper", function (source, cb)
+ESX.RegisterServerCallback("flaadev-rental:server:CheckPaper", function(source, cb)
     local src = source
-    local paper = Shared.rentalPaperName
-    local hasItems = exports['qb-inventory']:HasItem(src, paper, 1)
+    local Player = ESX.GetPlayerFromId(src)
+    local paper = Config.rentalPaperName
+    local hasItems = Player.hasItem(paper)
     if hasItems then
-        exports['qb-inventory']:RemoveItem(src, paper, 1, false, 'Took Paper')
+        Player.removeInventoryItem(paper, 1)
         cb(true)
     else
         cb(false)

@@ -1,5 +1,4 @@
-local Translations = {
-    error = {
+Locales['bs'] = {
         ["alreadyRented"]      = "Već ste iznajmili vozilo!",
         ["enoughCash"]         = "Nemate dovoljno gotovine!",
         ["fakeDrivingLicense"] = "Nije to tvoja vozačka! UZMI SVOJU!",
@@ -8,12 +7,8 @@ local Translations = {
         ["didnotRent"]         = "Nisi iznajmio vozilo!",
         ["beDriver"]           = "Ti mora da si vozač!",
         ["notTheCar"]          = "To nije auto koji ste unajmili!",
-    },
-    success = {
         ["rented"]             = "Čuvajte vozilo.",
         ["back"]               = "Hvala što ste ga vratili u jednom komadu!",
-    },
-    info = {
         ["rentalMenuHeader"]   = "Usluga iznajmljivanja",
         ["lostVehicle"]        = "Izgubio sam vozilo - $",
         ["payFees"]            = "Plati naknade!",
@@ -21,16 +16,6 @@ local Translations = {
         ["feesMenuHeader"]     = "Nemate papir za iznajmljivanje.",
         ["payRentalFees"]      = "Plati naknade - $",
         ["returnCar"]          = "E - Povratno vozilo",
-    },
-    warning = {
-        ["lostVehicle"]        = "Čuvaj se sljedeći put!"
-    }
+        ["loostVehicle"]       = "Čuvaj se sljedeći put!",
+        ["rentCar"]            = "E - Iznajmi vozilo",
 }
-
-if GetConvar('qb_locale', 'en') == 'bs' then
-    Lang = Locale:new({
-        phrases = Translations,
-        warnOnMissing = true,
-        fallbackLang = Lang,
-    })
-end

@@ -6,15 +6,16 @@ lua54 'yes'
 author 'FlaaSh'
 company 'FlaaDev Kit'
 description 'Renting system allows players to rent car/bike'
-version '1.0.0'
+version '2.0.0'
 
 escrow_ignore {
     'config.lua',
-    'locales/empty.lua',
+    'locales/*.lua',
 }
 
 shared_scripts {
-    '@qb-core/shared/locale.lua',
+    '@es_extended/imports.lua',
+    '@es_extended/locale.lua',
     'locales/en.lua',
     'locales/*.lua',
     'config.lua',
@@ -29,8 +30,5 @@ server_scripts {
 }
 
 dependency {
-    'qb-core',
-    'qb-target',
-    'qb-inventory',
-    'qb-menu'
+    'es_extended',
 }
