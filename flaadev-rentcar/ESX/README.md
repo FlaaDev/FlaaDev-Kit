@@ -22,6 +22,7 @@ Upon renting a vehicle, players receive a rental paper, which they must return w
 # NEW:
 - Tracking blip for the rented vehicle
 - Available for ESX
+- Bugs fixed for the rental paper
 # Last Version:
 - Player need driver license to rent a vehicle
 - Player can rent one vehicle only until s/he return it or pay the fees

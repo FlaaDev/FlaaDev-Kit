@@ -68,8 +68,8 @@ Config = {
     carBlip = { -- The blip settings of the car tracking that will be shown on the map
         name    = "Rented Vehicle",
         color   = 5,
-        carID   = 357, -- The car blip id
-        motorID = 523  -- The motorbike blip id
+        carID   = 523, -- The car blip id
+        motorID = 522  -- The motorbike blip id
     },
     cars = {
         -- The cars will be available in the menu of renting
