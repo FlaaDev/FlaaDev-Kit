@@ -10,19 +10,23 @@ QBCore.Functions.CreateCallback("flaadev-rental:server:PayRental", function (sou
     end
 end)
 
-QBCore.Functions.CreateCallback("flaadev-rental:server:CheckLicense", function (source, cb)
+QBCore.Functions.CreateCallback("flaadev-rental:server:CheckLicense", function (source, cb, price)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    local item = Shared.licenseItemName
-    local paper = Shared.rentalPaperName
-    local licensesFound = exports['qb-inventory']:GetItemsByName(src, item)
+    local item = Config.licenseItemName
+    local paper = Config.rentalPaperName
+    local licensesFound = Player.Functions.GetItemsByName(item)
     if #licensesFound >= 1 then
         for i, v in ipairs(licensesFound) do
             if v.info.firstname == Player.PlayerData.charinfo.firstname and v.info.lastname == Player.PlayerData.charinfo.lastname then
-                if exports['qb-inventory']:AddItem(src, paper, 1, false, false, 'Gave Paper') then
-                    cb(1)
+                if Player.Functions.GetMoney("cash") >= price then
+                    if Player.Functions.AddItem(paper, 1) then
+                        cb(1)
+                    else
+                        cb(4)
+                    end
                 else
-                    cb(4)
+                    cb(5)
                 end
             end
         end
@@ -34,12 +38,8 @@ end)
 
 QBCore.Functions.CreateCallback("flaadev-rental:server:CheckPaper", function (source, cb)
     local src = source
-    local paper = Shared.rentalPaperName
-    local hasItems = exports['qb-inventory']:HasItem(src, paper, 1)
-    if hasItems then
-        exports['qb-inventory']:RemoveItem(src, paper, 1, false, 'Took Paper')
-        cb(true)
-    else
-        cb(false)
-    end
+    local Player = QBCore.Functions.GetPlayer(src)
+    local paper = Config.rentalPaperName
+    Player.Functions.RemoveItem(paper, 1)
+    cb(true)
 end)

@@ -6,7 +6,7 @@ lua54 'yes'
 author 'FlaaSh'
 company 'FlaaDev Kit'
 description 'Renting system allows players to rent car/bike'
-version '1.0.0'
+version '2.0.0'
 
 escrow_ignore {
     'config.lua',
