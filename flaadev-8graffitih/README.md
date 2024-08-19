@@ -3,9 +3,12 @@
 ## Author: FlaaSh
 
 ## Support
-# Discord: `https://discord.gg/Py8TmSprTR`
-# Store  : `https://flaadev.tebex.io`
-# Youtube: `https://www.youtube.com/@FlaaDev`
+# Discord  : `https://discord.gg/Py8TmSprTR`
+# Youtube  : `https://www.youtube.com/@FlaaDev`
+# Github   : `https://github.com/FlaaDev/FlaaDev-Kit`
+# CFX Forum: `https://forum.cfx.re/u/flaadev-kit`
+# Store    : `https://flaadev.tebex.io`
+# Fiverr   : `https://www.fiverr.com/maroemad`
 
 ## License
 You can buy this clothing package through `https://flaadev.tebex.io/package/6343278`
